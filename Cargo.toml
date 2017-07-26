@@ -1,0 +1,8 @@
+[package]
+name = "k8s"
+version = "0.1.0"
+authors = ["Diego Pontoriero <dpontor@gmail.com>"]
+
+[build-dependencies]
+glob = "0.2"
+protoc-rust = "1.*"
