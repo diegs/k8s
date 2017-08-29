@@ -1,11 +1,15 @@
 extern crate futures;
 extern crate hyper;
+#[macro_use]
+extern crate serde_derive;
 extern crate tokio_core;
 
 use std::io::{self, Write};
 use futures::{Future, Stream};
 use hyper::Client;
 use tokio_core::reactor::Core;
+
+pub mod kubeconfig;
 
 fn http_get() -> std::result::Result<(), hyper::Error> {
     let mut core = Core::new()?;
@@ -29,6 +33,6 @@ fn http_get() -> std::result::Result<(), hyper::Error> {
 // 3. Construct request.
 // 4. Send request.
 // 5. Parse response.
-fn main() {
+pub fn get() {
     http_get().expect("http get");
 }

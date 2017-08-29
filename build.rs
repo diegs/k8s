@@ -5,8 +5,8 @@ extern crate glob;
 extern crate protoc_rust;
 
 fn main() {
-    // TODO(diegs): make this idiomatic.
-    for p in glob::glob("k8s.io/api/**/*.proto").expect("glob") {
+    let paths = glob::glob("k8s.io/api/**/*.proto").expect("glob");
+    for p in paths {
         let p = p.expect("path");
         let mut out = path::PathBuf::from("src");
         out.push(p.parent().expect("parent"));
